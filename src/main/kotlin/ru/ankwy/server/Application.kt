@@ -1,21 +1,29 @@
 package ru.ankwy.server
 
+import ru.ankwy.server.routes.configureApi
+import ru.ankwy.server.core.Constants
 import io.ktor.server.application.*
+import ru.ankwy.server.plugins.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import ru.ankwy.server.plugins.configureMain
 
 fun main() {
     embeddedServer(
         factory = Netty,
-        port = 8080,
-        host = "0.0.0.0",
-        module = Application::module
+        port = Constants.PORT,
+        host = Constants.HOST,
+        module = Application::modules
     ).apply {
         start(wait = true)
     }
 }
 
-fun Application.module() {
+fun Application.modules() {
     configureMain()
+    configureSerialization()
+    configureApi()
+    configureStatic()
+    configureTemplating()
+    configureInfo()
+    configureContacts()
 }

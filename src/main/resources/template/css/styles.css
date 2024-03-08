@@ -1,0 +1,32 @@
+body {
+    margin: 0px;
+}
+
+#toolbar {
+    background-color: black;
+    width: auto;
+    height: 75px;
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    float: left;
+}
+
+.item a {
+    color: white;
+    font-family: "Netflix";
+    font-size: 30px;
+    padding: 14px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+@font-face {
+    font-family: "Netflix";
+    src: url("/fonts/Netflix-\(Bebas-Neue\).ttf");
+}
